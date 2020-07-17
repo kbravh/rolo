@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import {copyToClipboard} from '../util/util'
+import {copyToClipboard, escapeRegExp} from '../util/util'
 
 import mockData from '../MOCK_DATA.json'
 
@@ -34,7 +34,7 @@ const IndexPage = () => {
   }
 
   const onCommandChange = event => {
-    setCommand(event.target.value)
+    setCommand(escapeRegExp(event.target.value))
   }
 
   useEffect(() => {
